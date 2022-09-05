@@ -1,11 +1,13 @@
 {
-    "name": "Game",
-    "rootNamespace": "Game",
+    "name": "GameEditor",
+    "rootNamespace": "GameEditor",
     "references": [
-        "GUID:cbc921a370874c14598c9a8f43e4c532",
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:bf66cbb7de1768f43b048cac5abb4999",
+        "GUID:cbc921a370874c14598c9a8f43e4c532"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
