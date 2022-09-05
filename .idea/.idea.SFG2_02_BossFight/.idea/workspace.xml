@@ -5,22 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03dd6993-b8d4-4453-bcd1-e8a14f18e038" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Core/MonoExtended.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Core/MonoExtended.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Core/ReadOnlyAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Core/ReadOnlyAttribute.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Core/Singleton.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Core/Singleton.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Core/SingletonExtended.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Core/SingletonExtended.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Core/Smooth2DVector.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Core/Smooth2DVector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/MousePlane.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/MousePlane.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Weapons/BulletBasic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Weapons/BulletBasic.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SFG2_02_BossFight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SFG2_02_BossFight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Data/Default-Controller.inputactions" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Data/Default-Controller.inputactions.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Game.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Game.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Game/Scenes/Main/Global Volume.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scenes/Main/Global Volume.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Game/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/CommonBurstAotSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/CommonBurstAotSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PresetManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PresetManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +29,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/_Game/Editor/ReadOnlyDrawer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Game/Scripts/Weapons/BulletBase.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -97,7 +98,7 @@
       <workItem from="1662051473060" duration="1038000" />
       <workItem from="1662079192235" duration="2647000" />
       <workItem from="1662344239606" duration="304000" />
-      <workItem from="1662399074947" duration="2368000" />
+      <workItem from="1662399074947" duration="7996000" />
     </task>
     <servers />
   </component>
