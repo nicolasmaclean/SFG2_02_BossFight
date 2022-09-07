@@ -10,6 +10,8 @@ namespace Game.Weapons
     [RequireComponent(typeof(Rigidbody))]
     public abstract class BulletBase : MonoExtended
     {
+        static Transform s_parent;
+        
         [Header("Stats")]
         [SerializeField]
         [Min(0)]
@@ -31,6 +33,13 @@ namespace Game.Weapons
         {
             if (_lifetime <= 0) return;
             Destroy(gameObject, _lifetime);
+
+            if (s_parent == null)
+            {
+                s_parent = new GameObject("GRP_Bullets").transform;
+            }
+
+            transform.parent = s_parent;
         }
         
         void Update()
@@ -46,13 +55,18 @@ namespace Game.Weapons
 
         void OnCollisionEnter(Collision collision)
         {
-            OnCollision();
+            OnCollision(collision);
         }
 
-        protected virtual void OnCollision()
+        protected virtual void OnCollision(Collision collision)
         {
             OnHit?.Invoke();
+            
+            IDamageable target = collision.gameObject.GetComponent<IDamageable>();
+            target?.Hurt(_damage);
+            
             Destroy(gameObject, DESTROY_DELAY);
+            
         }
     }
 }
