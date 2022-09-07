@@ -15,7 +15,7 @@ namespace Game.Player
         [Header("Stats")]
         [SerializeField]
         [Min(0)]
-        float _speed = 40;
+        float _speed = 10;
 
         [SerializeField]
         [Min(0)]
@@ -38,7 +38,7 @@ namespace Game.Player
         Rigidbody _rb;
         MousePlane _mouse = new();
 
-        void Awake()
+        protected override void OnAwake()
         {
             _rb = GetComponent<Rigidbody>();
         }
@@ -55,11 +55,8 @@ namespace Game.Player
 
         void Move()
         {
-            var t = transform;
-            Vector2 move  = Time.deltaTime * _speed * _moveInput.Value;
-            Vector3 delta = new Vector3(move.x, 0, move.y);
-            
-            _rb.MovePosition(t.position + delta);
+            Vector3 move3D = new Vector3(_moveInput.Value.x, 0, _moveInput.Value.y); 
+            _rb.velocity = _speed * move3D;
         }
 
         void Look()

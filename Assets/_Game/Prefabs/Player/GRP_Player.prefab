@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 4682182826171786396}
   - component: {fileID: 4682182826171786399}
   - component: {fileID: 4682182826171786398}
+  - component: {fileID: 1569796942774226385}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -244,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f6b75ed49bf7142be1822de42e5568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 40
+  _speed: 10
   _fireCooldown: 0.3
   _moveInput:
     Target: {x: 0, y: 0}
@@ -294,6 +295,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2, z: 0.55}
   m_Center: {x: 0, y: 0.95, z: 0.6}
+--- !u!114 &1569796942774226385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682182826171786391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cfd8856d084f029e62fd16ef480c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialHealth: 10
+  _clampToMaxHealth: 1
+  OnHurt:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4682182826423341925
 GameObject:
   m_ObjectHideFlags: 0

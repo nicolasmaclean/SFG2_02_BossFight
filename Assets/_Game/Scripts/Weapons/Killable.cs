@@ -1,10 +1,10 @@
-﻿using Game.Weapons;
+﻿using Game.Core;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Game.Player
+namespace Game.Weapons
 {
-    public class Player : MonoBehaviour, IDamageable
+    public class Killable : MonoExtended, IDamageable
     {
         public float Health => _health;
         float _health;
@@ -13,11 +13,25 @@ namespace Game.Player
         [SerializeField]
         float _initialHealth = 10f;
 
+        [SerializeField]
+        bool _clampToMaxHealth = true; 
+
         [Header("Events")]
         public UnityEvent OnHurt;
         public UnityEvent OnDeath;
 
         void Awake()
+        {
+            _health = _initialHealth;
+        }
+
+        public void Heal(float amount)
+        {
+            _health += amount;
+            if (_clampToMaxHealth) _health = Mathf.Min(_health, _initialHealth);
+        }
+
+        public void MaxHeal()
         {
             _health = _initialHealth;
         }
