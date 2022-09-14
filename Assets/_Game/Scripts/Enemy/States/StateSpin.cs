@@ -32,7 +32,7 @@ namespace Game.Enemy.States
         Transform[] _guns;
 
         [SerializeField]
-        BulletBase _bulletPrefab;
+        BulletBasic _bulletPrefab;
 
         [SerializeField]
         [ReadOnly]
