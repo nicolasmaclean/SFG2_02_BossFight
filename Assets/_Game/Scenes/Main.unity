@@ -722,7 +722,7 @@ PrefabInstance:
     - target: {fileID: 2594629396593526512, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2594629396593526515, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
@@ -788,6 +788,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 921864826}
     m_Modifications:
+    - target: {fileID: 1569796942774226385, guid: 229f1c8d36ac75447bba7986e8dd20ba,
+        type: 3}
+      propertyPath: OnHurt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4682182827303954311}
+    - target: {fileID: 1569796942774226385, guid: 229f1c8d36ac75447bba7986e8dd20ba,
+        type: 3}
+      propertyPath: OnHurt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GenerateImpulse
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569796942774226385, guid: 229f1c8d36ac75447bba7986e8dd20ba,
+        type: 3}
+      propertyPath: OnHurt.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Cinemachine.CinemachineImpulseSource, Cinemachine
+      objectReference: {fileID: 0}
     - target: {fileID: 4682182826171786389, guid: 229f1c8d36ac75447bba7986e8dd20ba,
         type: 3}
       propertyPath: m_Camera
@@ -853,5 +868,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4682182827020451471, guid: 229f1c8d36ac75447bba7986e8dd20ba, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 229f1c8d36ac75447bba7986e8dd20ba, type: 3}
+--- !u!114 &4682182827303954311 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8522705589440406143, guid: 229f1c8d36ac75447bba7986e8dd20ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 4682182827303954310}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
