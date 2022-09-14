@@ -6,12 +6,15 @@ namespace Game.Weapons
 {
     public class Killable : MonoExtended, IDamageable
     {
-        public float Health => _health;
+        [SerializeField]
+        [ReadOnly]
         float _health;
+        public float Health => _health;
 
         [Header("Stats")]
         [SerializeField]
         float _initialHealth = 10f;
+        public float InitialHealth => _initialHealth;
 
         [SerializeField]
         bool _clampToMaxHealth = true; 
@@ -19,6 +22,7 @@ namespace Game.Weapons
         [Header("Events")]
         public UnityEvent OnHurt;
         public UnityEvent OnDeath;
+        public UnityEvent OnChange;
 
         void Awake()
         {
@@ -28,12 +32,14 @@ namespace Game.Weapons
         public void Heal(float amount)
         {
             _health += amount;
+            OnChange?.Invoke();
             if (_clampToMaxHealth) _health = Mathf.Min(_health, _initialHealth);
         }
 
         public void MaxHeal()
         {
             _health = _initialHealth;
+            OnChange?.Invoke();
         }
         
         public void Hurt(float damage)
@@ -46,11 +52,16 @@ namespace Game.Weapons
             }
             
             OnHurt?.Invoke();
+            OnChange?.Invoke();
         }
 
         public void Kill()
         {
+            _health = 0;
+            
             OnDeath?.Invoke();
+            OnChange?.Invoke();
+            
             Destroy(gameObject);
         }
     }
