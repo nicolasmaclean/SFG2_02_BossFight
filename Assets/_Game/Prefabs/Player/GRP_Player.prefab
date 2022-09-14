@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1519386195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1519386198}
+  - component: {fileID: 1519386196}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1519386198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519386195}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.92, y: 0, z: -5.97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4682182826722490367}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1519386196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519386195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3730eeb582f8b46a9830cfc4a0e84c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4682182825913889838
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,6 +115,7 @@ GameObject:
   - component: {fileID: 4682182826171786399}
   - component: {fileID: 4682182826171786398}
   - component: {fileID: 1569796942774226385}
+  - component: {fileID: 1806284555621454645}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -142,9 +187,9 @@ MonoBehaviour:
     m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4682182826171786385}
-        m_TargetAssemblyTypeName: Game.Player.PlayerController, Game
-        m_MethodName: OnFire
+      - m_Target: {fileID: 1806284555621454645}
+        m_TargetAssemblyTypeName: Game.AbilityGun, Game
+        m_MethodName: FireEvent
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -198,9 +243,9 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4682182826171786385}
-        m_TargetAssemblyTypeName: Game.PlayerController, Game
-        m_MethodName: OnQuit
+      - m_Target: {fileID: 1519386196}
+        m_TargetAssemblyTypeName: Game.Utils.SceneController, Game
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -212,6 +257,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 67f97515-97d8-4614-917f-9f2766a380dd
     m_ActionName: Player/Exit[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1519386196}
+        m_TargetAssemblyTypeName: Game.Utils.SceneController, Game
+        m_MethodName: ReloadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e3ffe0ea-05cb-4f45-946a-6ae28b7b658c
+    m_ActionName: Player/Restart[/Keyboard/backspace]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -246,16 +307,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
-  _fireCooldown: 0.3
   _moveInput:
     Target: {x: 0, y: 0}
     Gravity: 3
-  _originBullet: {fileID: 4682182827426546222}
-  _bulletPrefab: {fileID: 143686027552736445, guid: 543a7b174d906d44382a32e5bf7882ca,
-    type: 3}
-  OnShoot:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!135 &4682182826171786396
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -313,6 +367,26 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1806284555621454645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682182826171786391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a32427a014b623240a82e7520872e999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fireCooldown: 0.3
+  _damage: 1
+  _originBullet: {fileID: 4682182827426546222}
+  _bulletPrefab: {fileID: 421476342850324285, guid: 543a7b174d906d44382a32e5bf7882ca,
+    type: 3}
+  OnShoot:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &4682182826423341925
@@ -417,6 +491,7 @@ Transform:
   - {fileID: 4682182826171786388}
   - {fileID: 4682182825913889836}
   - {fileID: 4682182826423341923}
+  - {fileID: 1519386198}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
