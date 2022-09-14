@@ -20,6 +20,7 @@ namespace Game.Core
             }
 
             slider.value = value;
+            callback?.Invoke();
             yield break;
         }
     }

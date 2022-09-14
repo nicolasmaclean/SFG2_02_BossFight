@@ -525,6 +525,7 @@ GameObject:
   - component: {fileID: 2120563157}
   - component: {fileID: 2120563159}
   - component: {fileID: 2120563158}
+  - component: {fileID: 99006080}
   m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
@@ -1394,7 +1395,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1447,7 +1448,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.04
+      scalar: 0
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -5339,6 +5340,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &99006080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120563154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1abe84d2b940dba6c923809b735ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4682182825913889838
 GameObject:
   m_ObjectHideFlags: 0
