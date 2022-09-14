@@ -26,13 +26,7 @@ namespace Game.Enemy.States
 
         [Header("Attack")]
         [SerializeField]
-        AnimationCurve _cooldownCurve = AnimationCurve.Linear(0, .4f, 1, .15f);
-
-        [SerializeField]
-        Transform[] _guns;
-
-        [SerializeField]
-        BulletBasic _bulletPrefab;
+        AbilityGun _gun;
 
         [SerializeField]
         [ReadOnly]
@@ -50,6 +44,7 @@ namespace Game.Enemy.States
         void OnDisable()
         {
             if (_fireLoop != null) StopCoroutine(_fireLoop);
+            _firing = false;
         }
         #endregion
 
@@ -95,24 +90,9 @@ namespace Game.Enemy.States
             {
                 while (_firing)
                 {
-                    yield return new WaitForSeconds(SampleCooldown());
-                    Fire();        
+                    yield return null;
+                    _gun.Fire();
                 }
-            }
-        }
-
-        float SampleCooldown()
-        {
-            float t = 1 - (float) (_revolutionsPerDirection - 1) / (_initialRevolutionsPerDirection - 1);
-            return _cooldownCurve.Evaluate(t);
-        }
-
-        void Fire()
-        {
-            foreach (var gun in _guns)
-            {
-                GameObject go = Instantiate(_bulletPrefab, gun.position, gun.rotation).gameObject;
-                go.layer = gameObject.layer;
             }
         }
 

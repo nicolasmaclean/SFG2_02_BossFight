@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2594629394789126194}
-  - component: {fileID: 2594629394789126204}
   - component: {fileID: 2594629394789126205}
   - component: {fileID: 8729500154715918124}
+  - component: {fileID: 994530556}
   m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
@@ -27,26 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2594629394789126195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.055}
+  m_LocalScale: {x: 1.68765, y: 0.5, z: 1.7508973}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2594629396285736813}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2594629394789126204
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594629394789126195}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2594629394789126205
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -75,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43cfd8856d084f029e62fd16ef480c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 0
   _initialHealth: 10
   _clampToMaxHealth: 1
   OnHurt:
@@ -131,6 +119,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!64 &994530556
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594629394789126195}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2594629394836906950
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43cfd8856d084f029e62fd16ef480c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 0
   _initialHealth: 5
   _clampToMaxHealth: 1
   OnHurt:
@@ -491,6 +497,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2594629395522019532
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,6 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43cfd8856d084f029e62fd16ef480c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 0
   _initialHealth: 5
   _clampToMaxHealth: 1
   OnHurt:
@@ -716,6 +726,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2594629395832158116
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +872,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2594629395954710782}
+  - component: {fileID: 5463190685130085887}
   m_Layer: 7
   m_Name: Guns
   m_TagString: Untagged
@@ -885,6 +899,30 @@ Transform:
   m_Father: {fileID: 2594629396285736813}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5463190685130085887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594629395954710783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c8ba7a3e754f079e9a1c0091d63a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fireCooldown: 0.3
+  _damage: 1
+  _originBullet: {fileID: 2594629396507063037}
+  _bulletPrefab: {fileID: 5003121114487782755, guid: 4a1d4874348aaad439ab0f30f5205a67,
+    type: 3}
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  _additionalGuns:
+  - {fileID: 2594629395522019535}
+  - {fileID: 2594629395618006357}
+  - {fileID: 2594629395088705635}
 --- !u!1 &2594629396285736802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,37 +1137,7 @@ MonoBehaviour:
   _revolutionDecrement: 2
   _revolutionsPerDirection: 0
   _revolutions: 0
-  _cooldownCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.3
-      inSlope: -0.043530427
-      outSlope: -0.043530427
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.11215367
-    - serializedVersion: 3
-      time: 1
-      value: 0.05
-      inSlope: -0.11492663
-      outSlope: -0.11492663
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.12746692
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _guns:
-  - {fileID: 2594629396507063037}
-  - {fileID: 2594629395522019535}
-  - {fileID: 2594629395618006357}
-  - {fileID: 2594629395088705635}
-  _bulletPrefab: {fileID: 5003121114487782755, guid: 4a1d4874348aaad439ab0f30f5205a67,
-    type: 3}
+  _gun: {fileID: 5463190685130085887}
   _firing: 0
 --- !u!1 &2594629396600327921
 GameObject:

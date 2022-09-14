@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game.Core;
 using Game.Weapons;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,14 +17,14 @@ namespace Game
 
         [SerializeField]
         [Min(0)]
-        float _damage;
+        protected float _damage;
         
         [Header("References")]
         [SerializeField]
-        Transform _originBullet;
+        protected Transform _originBullet;
 
         [SerializeField]
-        BulletBasic _bulletPrefab;
+        protected BulletBasic _bulletPrefab;
         
         [Header("Events")]
         public UnityEvent OnShoot;
@@ -38,18 +39,26 @@ namespace Game
             Fire();
         }
         
-        void Fire()
+        public virtual bool Fire()
         {
             float elapsedTime = Time.time - _fireTimestamp;
-            if (elapsedTime < _fireCooldown) return;
+            if (elapsedTime < _fireCooldown) return false;
 
             _fireTimestamp = Time.time;
-            
-            BulletBasic bullet = Instantiate(_bulletPrefab, _originBullet.position, _originBullet.rotation);
-            bullet.Damage = _damage;
-            bullet.gameObject.layer = gameObject.layer;
+
+            SpawnBullet(_bulletPrefab, _originBullet, _damage, gameObject.layer);
             
             OnShoot?.Invoke();
+            return true;
+        }
+
+        protected static BulletBasic SpawnBullet(BulletBasic bulletPrefab, Transform origin, float damage, int layer)
+        {
+            BulletBasic bullet = Instantiate(bulletPrefab, origin.position, origin.rotation);
+            bullet.Damage = damage;
+            bullet.gameObject.layer = layer;
+
+            return bullet;
         }
     }
 }
