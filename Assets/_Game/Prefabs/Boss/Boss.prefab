@@ -405,6 +405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2594629395801601051}
+  - component: {fileID: 1238270221}
   m_Layer: 7
   m_Name: Guns
   m_TagString: Untagged
@@ -428,6 +429,26 @@ Transform:
   m_Father: {fileID: 2594629395832158119}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1238270221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594629395801601048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a32427a014b623240a82e7520872e999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fireCooldown: 0.2
+  _damage: 0
+  _originBullet: {fileID: 2594629396401416381}
+  _bulletPrefab: {fileID: 5003121114487782755, guid: 4a1d4874348aaad439ab0f30f5205a67,
+    type: 3}
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2594629395803776336
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fireCooldown: 0.3
-  _damage: 1
+  _damage: 0
   _originBullet: {fileID: 2594629396507063037}
   _bulletPrefab: {fileID: 5003121114487782755, guid: 4a1d4874348aaad439ab0f30f5205a67,
     type: 3}
@@ -1052,6 +1073,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2594629396724054724}
+  - component: {fileID: 1335139503}
   m_Layer: 7
   m_Name: Guns
   m_TagString: Untagged
@@ -1075,6 +1097,26 @@ Transform:
   m_Father: {fileID: 2594629396600327920}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1335139503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594629396724054725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a32427a014b623240a82e7520872e999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fireCooldown: 0.2
+  _damage: 0
+  _originBullet: {fileID: 2594629396543557708}
+  _bulletPrefab: {fileID: 5003121114487782755, guid: 4a1d4874348aaad439ab0f30f5205a67,
+    type: 3}
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2594629396751712597
 GameObject:
   m_ObjectHideFlags: 0

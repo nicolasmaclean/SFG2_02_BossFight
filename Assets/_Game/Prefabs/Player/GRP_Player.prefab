@@ -5760,7 +5760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fireCooldown: 0.3
-  _damage: 1
+  _damage: 2
   _originBullet: {fileID: 4682182827426546222}
   _bulletPrefab: {fileID: 421476342850324285, guid: 543a7b174d906d44382a32e5bf7882ca,
     type: 3}
