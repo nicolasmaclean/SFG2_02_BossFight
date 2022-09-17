@@ -8,6 +8,7 @@ namespace Game.Utils
 {
     public class SceneController : MonoBehaviour
     {
+        public static int CurrentSceneIndex => SceneManager.GetActiveScene().buildIndex;
         public void Quit()
         {
             Application.Quit();
@@ -18,8 +19,15 @@ namespace Game.Utils
 
         public void ReloadScene()
         {
-            int currentScene = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(currentScene);
+            SceneManager.LoadScene(CurrentSceneIndex);
+        }
+        
+        public void LoadNextScene()
+        {
+            int nextIndex = CurrentSceneIndex + 1;
+            if (nextIndex >= SceneManager.sceneCountInBuildSettings) return;
+
+            SceneManager.LoadScene(nextIndex);
         }
     }
 }

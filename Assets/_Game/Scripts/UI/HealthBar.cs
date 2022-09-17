@@ -1,11 +1,7 @@
-﻿using System;
-using Codice.CM.Interfaces;
-using Game.Core;
+﻿using Game.Core;
 using Game.Utils;
 using Game.Weapons;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 namespace Game._Game.Scripts.UI
