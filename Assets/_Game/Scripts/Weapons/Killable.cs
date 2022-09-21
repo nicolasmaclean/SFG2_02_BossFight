@@ -67,7 +67,7 @@ namespace Game.Weapons
             OnDeath?.Invoke();
             OnChange?.Invoke();
             
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

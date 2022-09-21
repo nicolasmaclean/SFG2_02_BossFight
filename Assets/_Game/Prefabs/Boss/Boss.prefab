@@ -56,7 +56,19 @@ MonoBehaviour:
     type: 3}
   OnShoot:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 319629bcc0e29644b86caaa19274afc3, type: 2}
+        m_TargetAssemblyTypeName: Game.Audio.SOAudioData, Game.Core
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _additionalGuns:
   - {fileID: 441747786351677757}
   - {fileID: 7305502571705956617}
@@ -116,7 +128,19 @@ MonoBehaviour:
     type: 3}
   OnShoot:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 319629bcc0e29644b86caaa19274afc3, type: 2}
+        m_TargetAssemblyTypeName: Game.Audio.SOAudioData, Game.Core
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _additionalGuns:
   - {fileID: 1867005211049799495}
   - {fileID: 6942453948936130894}
@@ -188,7 +212,19 @@ MonoBehaviour:
   _clampToMaxHealth: 1
   OnHurt:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: d19591a4bcb134b4385013367c1529f2, type: 2}
+        m_TargetAssemblyTypeName: Game.Audio.SOAudioData, Game.Core
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -227,6 +263,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 20ab4b6080213ac42b6c589778dc90c1, type: 2}
+        m_TargetAssemblyTypeName: Game.Audio.SOAudioData, Game.Core
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2594629396285736802}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -389,7 +437,19 @@ MonoBehaviour:
   _clampToMaxHealth: 1
   OnHurt:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: d19591a4bcb134b4385013367c1529f2, type: 2}
+        m_TargetAssemblyTypeName: Game.Audio.SOAudioData, Game.Core
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -433,6 +493,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 33f6122fa85e1c04fad9f32f1196299d, type: 2}
+        m_TargetAssemblyTypeName: Game.Audio.SOAudioData, Game.Core
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -613,7 +685,19 @@ MonoBehaviour:
   _clampToMaxHealth: 1
   OnHurt:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: d19591a4bcb134b4385013367c1529f2, type: 2}
+        m_TargetAssemblyTypeName: Game.Audio.SOAudioData, Game.Core
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -657,6 +741,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 33f6122fa85e1c04fad9f32f1196299d, type: 2}
+        m_TargetAssemblyTypeName: Game.Audio.SOAudioData, Game.Core
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -900,7 +996,19 @@ MonoBehaviour:
     type: 3}
   OnShoot:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 319629bcc0e29644b86caaa19274afc3, type: 2}
+        m_TargetAssemblyTypeName: Game.Audio.SOAudioData, Game.Core
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _additionalGuns:
   - {fileID: 2594629395522019535}
   - {fileID: 2594629395618006357}
@@ -1039,6 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef8e2d56244458db96f613634d3a5c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioData: {fileID: 11400000, guid: 4ec6f77afbbf95645961b84c40af3770, type: 2}
   _currentPhase: 0
   _inTransition: 0
   _isDead: 0

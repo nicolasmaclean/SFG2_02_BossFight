@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Audio;
 using Game.Core;
 using Game.Weapons;
 using UnityEngine;
@@ -11,6 +12,10 @@ namespace Game.Enemy
     [RequireComponent(typeof(Animator))]
     public class EnemyBoss : MonoExtended
     {
+        [Header("Effects")]
+        [SerializeField]
+        SOAudioData _audioData;
+        
         [Header("Stats")]
         [SerializeField]
         [ReadOnly]
@@ -50,6 +55,11 @@ namespace Game.Enemy
                 kill.Invincible = Invincible;
             }
         }
+        
+        public void TriggerLand()
+        {
+            _audioData.Play();
+        }
 
         public void TriggerPhase2()
         {
@@ -67,7 +77,7 @@ namespace Game.Enemy
             _currentPhase = Phases.Alone;
             _anim.SetBool(BOOL_ALONE, true);
         }
-        
+
         public void SetPhase(string phase)
         {
             switch (phase)

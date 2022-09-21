@@ -17,7 +17,7 @@ namespace Game.Enemy.States
         {
             get
             {
-                if (_player == null)
+                if (_player == null && PlayerController.Instance != null)
                 {
                     _player = PlayerController.Instance.transform;
                 }
