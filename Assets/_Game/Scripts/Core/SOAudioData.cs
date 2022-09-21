@@ -26,7 +26,7 @@ namespace Game.Audio
         [Range(0, 1)]
         public float volume = 0.5f;
 
-        public void Play()
+        public GameObject Play()
         {
             // create audio source
             GameObject go = new GameObject(Clip.name);
@@ -38,7 +38,14 @@ namespace Game.Audio
             source.Play();
             
             // destroy clip when done
-            // Destroy(go, Clip.length);
+            Destroy(go, Clip.length);
+            return go;
+        }
+        
+        public void Play(Vector3 position)
+        {
+            GameObject go = Play();
+            go.transform.position = position;
         }
     }
     

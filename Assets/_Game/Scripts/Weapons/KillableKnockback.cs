@@ -3,6 +3,7 @@ using Game.Core;
 using Game.Player;
 using Game.Weapons;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Game.Weapons
