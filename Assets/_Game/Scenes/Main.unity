@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 989569609}
-  m_IndirectSpecularColor: {r: 0.00021194124, g: 0.00021177085, b: 0.00021285946,
-    a: 1}
+  m_IndirectSpecularColor: {r: 0.00021275163, g: 0.0002125614, b: 0.00021359464, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -765,11 +764,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 2594629396593526512, guid: 46cb008317e1b6942903af1c5f969c6a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2594629396593526515, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
       propertyPath: m_RootOrder
@@ -842,11 +836,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 817629111, guid: 229f1c8d36ac75447bba7986e8dd20ba, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.472
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 817629111, guid: 229f1c8d36ac75447bba7986e8dd20ba, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1479122502, guid: 229f1c8d36ac75447bba7986e8dd20ba, type: 3}
       propertyPath: m_Camera
@@ -854,15 +848,15 @@ PrefabInstance:
       objectReference: {fileID: 947247527}
     - target: {fileID: 2120563155, guid: 229f1c8d36ac75447bba7986e8dd20ba, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.472
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2120563155, guid: 229f1c8d36ac75447bba7986e8dd20ba, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2120563155, guid: 229f1c8d36ac75447bba7986e8dd20ba, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.472
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4682182826171786389, guid: 229f1c8d36ac75447bba7986e8dd20ba,
         type: 3}
@@ -873,11 +867,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GRP_Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4682182826722490366, guid: 229f1c8d36ac75447bba7986e8dd20ba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4682182826722490367, guid: 229f1c8d36ac75447bba7986e8dd20ba,
         type: 3}

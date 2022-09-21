@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
+using Game.Core;
 using Game.Player;
+using Game.Utils;
+using Game.Weapons;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -22,13 +25,26 @@ namespace Game.Enemy.States
                 return _player;
             }
         }
+
+        [SerializeField]
+        float _damage = 0;
+        
+        [SerializeField]
+        float _stunTime = 2f;
+
+        [SerializeField]
+        [ReadOnly]
+        bool _stunned;
+        
         NavMeshAgent _agent;
         Animator _anim;
+        ColliderMessager[] _hitboxes;
 
         void Awake()
         {
             _agent = GetComponent<NavMeshAgent>();
             _anim = GetComponentInParent<Animator>();
+            _hitboxes = GetComponentsInChildren<ColliderMessager>();
         }
 
         void Start()
@@ -40,6 +56,11 @@ namespace Game.Enemy.States
         {
             _agent.enabled = true;
             _seekCoroutine = StartCoroutine(SeekLoop());
+
+            foreach (var hitbox in _hitboxes)
+            {
+                hitbox.CollisionEnter += HitPlayer;
+            }
         }
 
         void OnDisable()
@@ -48,6 +69,11 @@ namespace Game.Enemy.States
             if (_seekCoroutine != null)
             {
                 StopCoroutine(_seekCoroutine);
+            }
+
+            foreach (var hitbox in _hitboxes)
+            {
+                hitbox.CollisionEnter += HitPlayer;
             }
         }
 
@@ -61,12 +87,34 @@ namespace Game.Enemy.States
             this.enabled = true;
         }
 
+        void HitPlayer(Collision collision)
+        {
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            
+            // ignore non-player collisions
+            if (player == null) return;
+
+            // apply knockback and damage to player
+            KillableKnockback knockback = player.GetComponent<KillableKnockback>();
+            if (knockback)
+            {
+                knockback.HurtWithKnockback(_damage, transform.position);
+            }
+            
+            // stun the boss
+            _stunned = true;
+            StartCoroutine(Coroutines.WaitThen(_stunTime, () =>
+            {
+                _stunned = false;
+            }));
+        }
+
         const float SEEK_INTERVAL = 0.2f;
         IEnumerator SeekLoop()
         {
             while (true)
             {
-                _agent.SetDestination(s_parent.position);
+                if (!_stunned) _agent.SetDestination(s_parent.position);
                 yield return new WaitForSeconds(SEEK_INTERVAL);
             }
         }

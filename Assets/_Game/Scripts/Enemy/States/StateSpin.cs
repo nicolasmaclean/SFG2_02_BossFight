@@ -28,10 +28,6 @@ namespace Game.Enemy.States
         [SerializeField]
         AbilityGun _gun;
 
-        [SerializeField]
-        [ReadOnly]
-        bool _firing;
-        
         Animator _anim;
 
         #region MonoBehaviour
@@ -43,8 +39,7 @@ namespace Game.Enemy.States
 
         void OnDisable()
         {
-            if (_fireLoop != null) StopCoroutine(_fireLoop);
-            _firing = false;
+            _gun.SetFiring(false);
         }
         #endregion
 
@@ -58,7 +53,8 @@ namespace Game.Enemy.States
             }
 
             _revolutions = 1;
-            if (!_firing) StartFiring();
+            
+            _gun.SetFiring(true);
         }
 
         public void SpinIteration()
@@ -79,22 +75,6 @@ namespace Game.Enemy.States
             }
         }
         #endregion
-
-        Coroutine _fireLoop;
-        void StartFiring()
-        {
-            _firing = true;
-            _fireLoop = StartCoroutine(FireLoop());
-
-            IEnumerator FireLoop()
-            {
-                while (_firing)
-                {
-                    yield return null;
-                    _gun.Fire();
-                }
-            }
-        }
 
         #region Animator Constants
         static readonly int TRIG_SKIPLOOP = Animator.StringToHash("ExitLoop");

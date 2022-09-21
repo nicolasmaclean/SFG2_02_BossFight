@@ -24,7 +24,7 @@ namespace Game.Weapons
         public UnityEvent OnDeath;
         public UnityEvent OnChange;
 
-        void Awake()
+        protected virtual void Awake()
         {
             _health = _initialHealth;
         }
@@ -42,17 +42,18 @@ namespace Game.Weapons
             OnChange?.Invoke();
         }
         
-        public void Hurt(float damage)
+        public bool Hurt(float damage)
         {
             _health -= damage;
             if (_health <= 0)
             {
                 Kill();
-                return;
+                return false;
             }
             
             OnHurt?.Invoke();
             OnChange?.Invoke();
+            return true;
         }
 
         public void Kill()

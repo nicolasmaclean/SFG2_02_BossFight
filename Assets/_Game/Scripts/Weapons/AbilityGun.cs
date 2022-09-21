@@ -18,6 +18,10 @@ namespace Game
         [SerializeField]
         [Min(0)]
         protected float _damage;
+
+        [SerializeField]
+        [ReadOnly]
+        protected bool _firing;
         
         [Header("References")]
         [SerializeField]
@@ -29,14 +33,16 @@ namespace Game
         [Header("Events")]
         public UnityEvent OnShoot;
         
+        
         float _fireTimestamp;
         
         public void FireEvent(InputAction.CallbackContext context)
         {
-            // activate on button down
-            if (!context.performed) return;
-            
-            Fire();
+            // ignore redundant event call
+            if (context.started) return;
+
+            // set _firing to true when button down
+            SetFiring(context.performed);
         }
         
         public virtual bool Fire()
@@ -51,7 +57,7 @@ namespace Game
             OnShoot?.Invoke();
             return true;
         }
-
+        
         protected static BulletBasic SpawnBullet(BulletBasic bulletPrefab, Transform origin, float damage, int layer)
         {
             BulletBasic bullet = Instantiate(bulletPrefab, origin.position, origin.rotation);
@@ -59,6 +65,28 @@ namespace Game
             bullet.gameObject.layer = layer;
 
             return bullet;
+        }
+
+        public virtual void SetFiring(bool value)
+        {
+            // ignore if _firing does not change
+            if (_firing == value) return;
+            
+            _firing = value;
+
+            if (_firing)
+            {
+                StartCoroutine(FiringLoop());
+            }
+        }
+        
+        IEnumerator FiringLoop()
+        {
+            while (_firing)
+            {
+                Fire();
+                yield return new WaitForSeconds(_fireCooldown);
+            }
         }
     }
 }

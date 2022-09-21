@@ -6,6 +6,18 @@ namespace Game.Core
 {
     public static class Coroutines
     {
+        public static IEnumerator WaitThen(float seconds, System.Action callback)
+        {
+            yield return new WaitForSeconds(seconds);
+            callback?.Invoke();
+        }
+        
+        public static IEnumerator WaitTill(System.Func<bool> predicate, System.Action callback )
+        {
+            yield return new WaitUntil(predicate);
+            callback?.Invoke();
+        }
+        
         public static IEnumerator Slider_Lerp(Slider slider, float value, float duration, System.Action callback=null)
         {
             float init = slider.value; 

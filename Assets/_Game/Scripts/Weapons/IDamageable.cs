@@ -4,6 +4,6 @@ namespace Game.Weapons
 {
     public interface IDamageable
     {
-        public void Hurt(float damage);
+        public bool Hurt(float damage);
     }
 }
