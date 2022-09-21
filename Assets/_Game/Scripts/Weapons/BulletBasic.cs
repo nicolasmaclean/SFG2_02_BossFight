@@ -16,22 +16,24 @@ namespace Game.Weapons
         [ReadOnly]
         public float Damage = 0;
 
-        [SerializeField]
-        [Min(0)]
-        protected float _speed = 5f;
+        [ReadOnly]
+        public float Speed = 5;
 
         [SerializeField]
         protected float _lifetime = 30f;
 
         [Header("Events")]
+        public UnityEvent OnFire;
         public UnityEvent OnHit;
         
         const float DESTROY_DELAY = 0.05f;
 
         void Start()
         {
-            if (_lifetime <= 0) return;
-            Destroy(gameObject, _lifetime);
+            if (_lifetime > 0)
+            {
+                Destroy(gameObject, _lifetime);
+            }
 
             if (s_parent == null)
             {
@@ -39,6 +41,7 @@ namespace Game.Weapons
             }
 
             transform.parent = s_parent;
+            OnFire?.Invoke();
         }
         
         void Update()
@@ -48,7 +51,7 @@ namespace Game.Weapons
 
         protected virtual void Move()
         {
-            float dist = Time.deltaTime * _speed;
+            float dist = Time.deltaTime * Speed;
             transform.Translate(0, 0, dist);
         }
 

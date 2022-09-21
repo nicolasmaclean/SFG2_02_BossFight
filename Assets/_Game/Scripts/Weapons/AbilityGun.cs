@@ -17,6 +17,10 @@ namespace Game
 
         [SerializeField]
         [Min(0)]
+        protected float _speed = 8;
+
+        [SerializeField]
+        [Min(0)]
         protected float _damage;
 
         [SerializeField]
@@ -52,16 +56,17 @@ namespace Game
 
             _fireTimestamp = Time.time;
 
-            SpawnBullet(_bulletPrefab, _originBullet, _damage, gameObject.layer);
+            SpawnBullet(_bulletPrefab, _originBullet, _damage, _speed, gameObject.layer);
             
             OnShoot?.Invoke();
             return true;
         }
         
-        protected static BulletBasic SpawnBullet(BulletBasic bulletPrefab, Transform origin, float damage, int layer)
+        protected static BulletBasic SpawnBullet(BulletBasic bulletPrefab, Transform origin, float damage, float speed, int layer)
         {
             BulletBasic bullet = Instantiate(bulletPrefab, origin.position, origin.rotation);
             bullet.Damage = damage;
+            bullet.Speed = speed;
             bullet.gameObject.layer = layer;
 
             return bullet;

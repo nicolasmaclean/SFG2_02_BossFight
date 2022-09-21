@@ -5418,10 +5418,10 @@ GameObject:
   - component: {fileID: 4682182826171786388}
   - component: {fileID: 4682182826171786389}
   - component: {fileID: 4682182826171786384}
-  - component: {fileID: 4682182826171786385}
   - component: {fileID: 4682182826171786396}
   - component: {fileID: 4682182826171786399}
   - component: {fileID: 4682182826171786398}
+  - component: {fileID: 4682182826171786385}
   - component: {fileID: 8522705589440406143}
   - component: {fileID: 1857730142}
   - component: {fileID: 169707710}
@@ -5603,22 +5603,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 2
---- !u!114 &4682182826171786385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4682182826171786391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f6b75ed49bf7142be1822de42e5568, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 10
-  _moveInput:
-    Target: {x: 0, y: 0}
-    Gravity: 3
 --- !u!135 &4682182826171786396
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5658,6 +5642,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2, z: 0.55}
   m_Center: {x: 0, y: 0.95, z: 0.6}
+--- !u!114 &4682182826171786385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682182826171786391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f6b75ed49bf7142be1822de42e5568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _moveInput:
+    Target: {x: 0, y: 0}
+    Gravity: 3
 --- !u!114 &8522705589440406143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5723,8 +5723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32427a014b623240a82e7520872e999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireCooldown: 0.3
-  _damage: 2
+  _fireCooldown: 0.7
+  _speed: 15
+  _damage: 3
   _firing: 0
   _originBullet: {fileID: 4682182827426546222}
   _bulletPrefab: {fileID: 421476342850324285, guid: 543a7b174d906d44382a32e5bf7882ca,

@@ -15,7 +15,7 @@ namespace Game._Game.Scripts.Weapons
             {
                 foreach (var gun in _additionalGuns)
                 {
-                    SpawnBullet(_bulletPrefab, gun, _damage, gameObject.layer);
+                    SpawnBullet(_bulletPrefab, gun, _damage, _speed, gameObject.layer);
                 }
             }
             

@@ -6,6 +6,8 @@ namespace Game.Weapons
 {
     public class Killable : MonoExtended, IDamageable
     {
+        public bool Invincible;
+        
         [SerializeField]
         [ReadOnly]
         float _health;
@@ -44,6 +46,8 @@ namespace Game.Weapons
         
         public bool Hurt(float damage)
         {
+            if (Invincible) return false;
+            
             _health -= damage;
             if (_health <= 0)
             {

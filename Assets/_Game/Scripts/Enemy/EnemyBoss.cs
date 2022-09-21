@@ -19,6 +19,16 @@ namespace Game.Enemy
         [SerializeField]
         [ReadOnly]
         bool _inTransition;
+        public bool Invincible => _inTransition;
+        public bool InTransition
+        {
+            get => _inTransition;
+            protected set
+            {
+                _inTransition = value;
+                UpdateInvincible();
+            }
+        }
 
         [SerializeField]
         [ReadOnly]
@@ -30,6 +40,15 @@ namespace Game.Enemy
         {
             _anim = GetComponent<Animator>();
             _inTransition = true;
+        }
+
+        void UpdateInvincible()
+        {
+            Killable[] killables = GetComponentsInChildren<Killable>();
+            foreach (var kill in killables)
+            {
+                kill.Invincible = Invincible;
+            }
         }
 
         public void TriggerPhase2()
@@ -65,7 +84,7 @@ namespace Game.Enemy
             }
         }
 
-        public void SetTransition(int inTransition) => _inTransition = inTransition > 0;
+        public void SetTransition(int inTransition) => InTransition = inTransition > 0;
         public void SetDead(int isDead) => _isDead = isDead > 0;
         public void SetEnabledForAnimator(int isEnabled) => _anim.enabled = isEnabled > 0; 
         
