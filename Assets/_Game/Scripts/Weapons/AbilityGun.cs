@@ -26,6 +26,7 @@ namespace Game
         [SerializeField]
         [ReadOnly]
         protected bool _firing;
+        public bool Firing => _firing;
         
         [Header("References")]
         [SerializeField]

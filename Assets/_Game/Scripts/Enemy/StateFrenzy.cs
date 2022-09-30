@@ -7,7 +7,7 @@ using Game.Weapons;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Game.Enemy.States
+namespace Game.Enemy
 {
     [RequireComponent(typeof(NavMeshAgent))]
     public class StateFrenzy : MonoBehaviour
@@ -37,13 +37,11 @@ namespace Game.Enemy.States
         bool _stunned;
         
         NavMeshAgent _agent;
-        Animator _anim;
         ColliderMessager[] _hitboxes;
 
         void Awake()
         {
             _agent = GetComponent<NavMeshAgent>();
-            _anim = GetComponentInParent<Animator>();
             _hitboxes = GetComponentsInChildren<ColliderMessager>();
         }
 
@@ -55,7 +53,7 @@ namespace Game.Enemy.States
         void OnEnable()
         {
             _agent.enabled = true;
-            _seekCoroutine = StartCoroutine(SeekLoop());
+            StartCoroutine(SeekLoop());
 
             foreach (var hitbox in _hitboxes)
             {
@@ -66,25 +64,10 @@ namespace Game.Enemy.States
         void OnDisable()
         {
             _agent.enabled = false;
-            if (_seekCoroutine != null)
-            {
-                StopCoroutine(_seekCoroutine);
-            }
-
             foreach (var hitbox in _hitboxes)
             {
-                hitbox.CollisionEnter += HitPlayer;
+                hitbox.CollisionEnter -= HitPlayer;
             }
-        }
-
-        Coroutine _seekCoroutine;
-        public void StartFrenzy()
-        {
-            // we will no longer be using the animator
-            _anim.enabled = false;
-            
-            // start the loop
-            this.enabled = true;
         }
 
         void HitPlayer(Collision collision)
@@ -114,6 +97,9 @@ namespace Game.Enemy.States
         {
             while (true)
             {
+                // stop the loop, if this component has been disabled
+                if (!this.enabled) yield break;
+                
                 if (!_stunned) _agent.SetDestination(s_parent.position);
                 yield return new WaitForSeconds(SEEK_INTERVAL);
             }

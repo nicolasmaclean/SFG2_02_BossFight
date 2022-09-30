@@ -230,7 +230,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2594629396593526514}
         m_TargetAssemblyTypeName: Game.Enemy.EnemyBoss, Game
-        m_MethodName: TriggerPhase2
+        m_MethodName: TriggerBreak
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -240,7 +240,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2594629396593526526}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -455,7 +455,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2594629396593526514}
         m_TargetAssemblyTypeName: Game.Enemy.EnemyBoss, Game
-        m_MethodName: TriggerPhase3
+        m_MethodName: TriggerFrenzy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -489,7 +489,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5037798310847339961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -703,7 +703,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2594629396593526514}
         m_TargetAssemblyTypeName: Game.Enemy.EnemyBoss, Game
-        m_MethodName: TriggerPhase3
+        m_MethodName: TriggerFrenzy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -737,7 +737,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5037798310847339961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -1089,8 +1089,6 @@ GameObject:
   - component: {fileID: 2594629396593526515}
   - component: {fileID: 2594629396593526524}
   - component: {fileID: 2594629396593526514}
-  - component: {fileID: 2594629396593526526}
-  - component: {fileID: 5037798310847339961}
   m_Layer: 7
   m_Name: Boss
   m_TagString: Untagged
@@ -1151,39 +1149,6 @@ MonoBehaviour:
   _currentPhase: 0
   _inTransition: 0
   _isDead: 0
---- !u!114 &2594629396593526526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594629396593526512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74f962258efd438d88313db280e7df15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _initialRevolutionsPerDirection: 10
-  _revolutionDecrement: 2
-  _revolutionsPerDirection: 0
-  _revolutions: 0
-  _gun: {fileID: 5463190685130085887}
---- !u!114 &5037798310847339961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594629396593526512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0e58ea25eaa4b2e90a40d1f81e5663e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _guns:
-  - {fileID: 6982440045965943691}
-  - {fileID: 3548482132470922554}
-  _randomDelayMax: 0.2
 --- !u!1 &2594629396600327921
 GameObject:
   m_ObjectHideFlags: 0

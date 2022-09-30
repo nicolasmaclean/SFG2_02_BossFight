@@ -12,9 +12,10 @@ namespace Game.Enemy
     [RequireComponent(typeof(Animator))]
     public class EnemyBoss : MonoExtended
     {
-        [Header("Effects")]
-        [SerializeField]
-        SOAudioData _audioData;
+        [Header("Events")]
+        public UnityEvent OnLand;
+        public UnityEvent OnBreak;
+        public UnityEvent OnFrenzy;
         
         [Header("Stats")]
         [SerializeField]
@@ -55,27 +56,26 @@ namespace Game.Enemy
                 kill.Invincible = Invincible;
             }
         }
-        
-        public void TriggerLand()
-        {
-            _audioData.Play();
-        }
 
-        public void TriggerPhase2()
+        public void TriggerLand() => OnLand?.Invoke();
+
+        public void TriggerBreak()
         {
             if (_currentPhase != Phases.Spin) return;
 
             _currentPhase = Phases.Patrol;
             _anim.SetBool(BOOL_BROKE, true);
             _anim.SetTrigger(TRIG_BREAK);
+            OnBreak?.Invoke();
         }
 
-        public void TriggerPhase3()
+        public void TriggerFrenzy()
         {
             if (_currentPhase != Phases.Patrol) return;
 
             _currentPhase = Phases.Alone;
             _anim.SetBool(BOOL_ALONE, true);
+            OnFrenzy?.Invoke();
         }
 
         public void SetPhase(string phase)

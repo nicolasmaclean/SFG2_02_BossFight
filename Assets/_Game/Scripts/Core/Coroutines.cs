@@ -4,8 +4,25 @@ using UnityEngine.UI;
 
 namespace Game.Core
 {
+    public class CoroutineSource : MonoBehaviour { }
     public static class Coroutines
     {
+        static CoroutineSource _source;
+        static CoroutineSource s_source
+        {
+            get
+            {
+                if (_source == null)
+                {
+                    _source = new GameObject("Coroutine Source").AddComponent<CoroutineSource>();
+                }
+                return _source;
+            }
+        }
+        public static Coroutine Start(IEnumerator coroutine) => s_source.StartCoroutine(coroutine);
+        public static void Stop(Coroutine coroutine) => s_source.StopCoroutine(coroutine);
+        public static void StopAll() => s_source.StopAllCoroutines();
+        
         public static IEnumerator WaitThen(float seconds, System.Action callback)
         {
             yield return new WaitForSeconds(seconds);

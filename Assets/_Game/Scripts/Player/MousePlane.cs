@@ -30,13 +30,13 @@ namespace Game.Player
             }
         }
 
-        Plane _groundPlane = new(Vector3.up, 0);
+        static Plane s_groundPlane = new(Vector3.up, 0);
         float _distance;
         
         void Update()
         {
             Ray ray = Cam.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if (_groundPlane.Raycast(ray, out _distance))
+            if (s_groundPlane.Raycast(ray, out _distance))
             {
                 _position = ray.GetPoint(_distance);
             }
