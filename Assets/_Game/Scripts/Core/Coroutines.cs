@@ -52,5 +52,23 @@ namespace Game.Core
             callback?.Invoke();
             yield break;
         }
+
+        public static IEnumerator Graphic_Lerp(Graphic graphic, Color to, float duration, System.Action callback = null)
+        {
+            Color init = graphic.color; 
+            float elapsed = 0;
+
+            while (elapsed < duration)
+            {
+                graphic.color = Color.Lerp(init, to, elapsed / duration);
+                
+                yield return null;
+                elapsed += Time.deltaTime;
+            }
+
+            graphic.color = to;
+            callback?.Invoke();
+            yield break;
+        }
     }
 }
