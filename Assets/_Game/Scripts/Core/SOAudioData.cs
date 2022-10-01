@@ -26,6 +26,7 @@ namespace Game.Audio
         [Range(0, 1)]
         public float volume = 0.5f;
 
+        public void PlayStupid() => Play();
         public GameObject Play()
         {
             // create audio source

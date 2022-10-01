@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 989569609}
-  m_IndirectSpecularColor: {r: 0.00021267458, g: 0.00021252716, b: 0.00021349202,
-    a: 1}
+  m_IndirectSpecularColor: {r: 0.00021275163, g: 0.0002125614, b: 0.00021359464, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -813,7 +812,7 @@ PrefabInstance:
     - target: {fileID: 2594629396593526514, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
       propertyPath: OnLand.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
+      value: PlayStupid
       objectReference: {fileID: 0}
     - target: {fileID: 2594629396593526514, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
@@ -880,6 +879,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3548482132470922554, guid: 46cb008317e1b6942903af1c5f969c6a,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayStupid
+      objectReference: {fileID: 0}
     - target: {fileID: 3730523747827254974, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
@@ -913,13 +917,18 @@ PrefabInstance:
       objectReference: {fileID: 90064974}
     - target: {fileID: 3730523747827254974, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
+      propertyPath: OnHurt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayStupid
+      objectReference: {fileID: 0}
+    - target: {fileID: 3730523747827254974, guid: 46cb008317e1b6942903af1c5f969c6a,
+        type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 3730523747827254974, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: Play
+      value: PlayStupid
       objectReference: {fileID: 0}
     - target: {fileID: 3730523747827254974, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
@@ -979,13 +988,18 @@ PrefabInstance:
       objectReference: {fileID: 1011036934}
     - target: {fileID: 4896159877874773017, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
+      propertyPath: OnHurt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayStupid
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896159877874773017, guid: 46cb008317e1b6942903af1c5f969c6a,
+        type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 4896159877874773017, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: Play
+      value: PlayStupid
       objectReference: {fileID: 0}
     - target: {fileID: 4896159877874773017, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
@@ -1011,6 +1025,37 @@ PrefabInstance:
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463190685130085887, guid: 46cb008317e1b6942903af1c5f969c6a,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463190685130085887, guid: 46cb008317e1b6942903af1c5f969c6a,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 319629bcc0e29644b86caaa19274afc3,
+        type: 2}
+    - target: {fileID: 5463190685130085887, guid: 46cb008317e1b6942903af1c5f969c6a,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463190685130085887, guid: 46cb008317e1b6942903af1c5f969c6a,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463190685130085887, guid: 46cb008317e1b6942903af1c5f969c6a,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982440045965943691, guid: 46cb008317e1b6942903af1c5f969c6a,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayStupid
       objectReference: {fileID: 0}
     - target: {fileID: 8729500154715918124, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
@@ -1045,13 +1090,18 @@ PrefabInstance:
       objectReference: {fileID: 417740931}
     - target: {fileID: 8729500154715918124, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
+      propertyPath: OnHurt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayStupid
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729500154715918124, guid: 46cb008317e1b6942903af1c5f969c6a,
+        type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 8729500154715918124, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: Play
+      value: PlayStupid
       objectReference: {fileID: 0}
     - target: {fileID: 8729500154715918124, guid: 46cb008317e1b6942903af1c5f969c6a,
         type: 3}
@@ -1100,6 +1150,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 921864826}
     m_Modifications:
+    - target: {fileID: 169707710, guid: 229f1c8d36ac75447bba7986e8dd20ba, type: 3}
+      propertyPath: OnHurt.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayStupid
+      objectReference: {fileID: 0}
+    - target: {fileID: 169707710, guid: 229f1c8d36ac75447bba7986e8dd20ba, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayStupid
+      objectReference: {fileID: 0}
     - target: {fileID: 817629111, guid: 229f1c8d36ac75447bba7986e8dd20ba, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1112,6 +1170,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 947247527}
+    - target: {fileID: 1857730142, guid: 229f1c8d36ac75447bba7986e8dd20ba, type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayStupid
+      objectReference: {fileID: 0}
     - target: {fileID: 2120563155, guid: 229f1c8d36ac75447bba7986e8dd20ba, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
