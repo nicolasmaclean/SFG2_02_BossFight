@@ -1,15 +1,13 @@
 using System.Collections;
+using System.Collections.Generic;
 using Game.Core;
 using Game.Player;
-using Game.Weapons;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 namespace Game.Weapons
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class KillableKnockback : Killable
+    public class Knockbackable : MonoBehaviour
     {
         [SerializeField]
         float _mult = 8;
@@ -17,29 +15,18 @@ namespace Game.Weapons
         Rigidbody _rb;
         PlayerController _controller;
 
-        protected override void Awake()
+        protected virtual void Awake()
         {
-            base.Awake();
-            
             _rb = GetComponent<Rigidbody>();
             _controller = GetComponent<PlayerController>();
         }
 
-        public void HurtWithKnockback(float damage, Vector3 from)
+        public void Apply(Vector3 from)
         {
-            // apply knockback if not dead
-            if (Hurt(damage))
+            // turn off player controller, temporarily
+            if (_controller)
             {
-                // turn off player controller
                 _controller.enabled = false;
-                
-                // calculate force
-                Vector3 dir = (transform.position - from).normalized;
-                dir *= _mult;
-                
-                // apply force
-                _rb.AddForce(dir, ForceMode.Impulse);
-
                 StartCoroutine(Coroutines.WaitThen(.05f, () =>
                 {
                     StartCoroutine(Coroutines.WaitTill(
@@ -48,6 +35,13 @@ namespace Game.Weapons
                     ));
                 }));
             }
+            
+            // calculate force
+            Vector3 dir = (transform.position - from).normalized;
+            dir *= _mult;
+            
+            // apply force
+            _rb.AddForce(dir, ForceMode.Impulse);
         }
     }
 }

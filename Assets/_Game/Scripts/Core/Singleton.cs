@@ -6,7 +6,7 @@ namespace Game.Core
     {
         public static T Instance;
 
-        void Awake()
+        protected virtual void Awake()
         {
             if (Instance != null)
             {
@@ -15,9 +15,6 @@ namespace Game.Core
             }
 
             Instance = this as T;
-            OnAwake();
         }
-        
-        protected virtual void OnAwake() { }
     }
 }

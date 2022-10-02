@@ -72,17 +72,18 @@ namespace Game.Enemy
 
         void HitPlayer(Collision collision)
         {
-            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-            
-            // ignore non-player collisions
-            if (player == null) return;
+            GameObject other = collision.gameObject;
+            IDamageable dmg = other.GetComponent<IDamageable>();
+            Knockbackable kb = other.GetComponent<Knockbackable>();
 
-            // apply knockback and damage to player
-            KillableKnockback knockback = player.GetComponent<KillableKnockback>();
-            if (knockback)
-            {
-                knockback.HurtWithKnockback(_damage, transform.position);
-            }
+            // ignore if no-op
+            if (dmg == null && kb == null) return;
+            
+            // apply damage to player
+            dmg?.Hurt(_damage);
+            
+            // apply knockback
+            if (kb) kb.Apply(transform.position);
             
             // stun the boss
             _stunned = true;

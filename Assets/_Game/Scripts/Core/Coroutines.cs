@@ -22,7 +22,7 @@ namespace Game.Core
         public static Coroutine Start(IEnumerator coroutine) => s_source.StartCoroutine(coroutine);
         public static void Stop(Coroutine coroutine) => s_source.StopCoroutine(coroutine);
         public static void StopAll() => s_source.StopAllCoroutines();
-        
+
         public static IEnumerator WaitThen(float seconds, System.Action callback)
         {
             yield return new WaitForSeconds(seconds);
@@ -52,8 +52,26 @@ namespace Game.Core
             callback?.Invoke();
             yield break;
         }
+        
+        public static IEnumerator Image_Fill_Lerp(Image img, float value, float duration, System.Action callback=null)
+        {
+            float init = img.fillAmount; 
+            float elapsed = 0;
 
-        public static IEnumerator Graphic_Lerp(Graphic graphic, Color to, float duration, System.Action callback = null)
+            while (elapsed < duration)
+            {
+                img.fillAmount = Mathf.Lerp(init, value, elapsed / duration);
+                
+                yield return null;
+                elapsed += Time.deltaTime;
+            }
+
+            img.fillAmount = value;
+            callback?.Invoke();
+            yield break;
+        }
+
+        public static IEnumerator Graphic_Color_Lerp(Graphic graphic, Color to, float duration, System.Action callback = null)
         {
             Color init = graphic.color; 
             float elapsed = 0;

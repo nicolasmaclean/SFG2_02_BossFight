@@ -1,4 +1,6 @@
-﻿using Game.Core;
+﻿using System;
+using Game.Core;
+using Game.UI;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,29 +21,50 @@ namespace Game.Weapons
         public float InitialHealth => _initialHealth;
 
         [SerializeField]
-        bool _clampToMaxHealth = true; 
+        bool _clampToMaxHealth = true;
 
         [Header("Events")]
-        public UnityEvent OnHurt;
+        [SerializeField]
+        string _addToHud = string.Empty;
+        
+        public UnityEvent<float> OnHurt;
+        public UnityEvent<float> OnChange;
         public UnityEvent OnDeath;
-        public UnityEvent OnChange;
 
         protected virtual void Awake()
         {
             _health = _initialHealth;
         }
 
+        HealthBar _healthBar;
+        void Start()
+        {
+            if (_addToHud == string.Empty) return;
+            
+            _healthBar = HUDModel.Instance.AddHealthBar(_addToHud);
+            OnChange.AddListener(_healthBar.SetHealth);
+        }
+
+        void OnDisable()
+        {
+            if (!_healthBar) return;
+            OnChange.RemoveListener(_healthBar.SetHealth);
+            HUDModel.Instance.Remove(_healthBar);
+            
+            _healthBar = null;
+        }
+
         public void Heal(float amount)
         {
             _health += amount;
-            OnChange?.Invoke();
+            OnChange?.Invoke(_health / _initialHealth);
             if (_clampToMaxHealth) _health = Mathf.Min(_health, _initialHealth);
         }
 
         public void MaxHeal()
         {
             _health = _initialHealth;
-            OnChange?.Invoke();
+            OnChange?.Invoke(_health / _initialHealth);
         }
         
         public bool Hurt(float damage)
@@ -55,8 +78,8 @@ namespace Game.Weapons
                 return false;
             }
             
-            OnHurt?.Invoke();
-            OnChange?.Invoke();
+            OnHurt?.Invoke(_health / _initialHealth);
+            OnChange?.Invoke(_health / _initialHealth);
             return true;
         }
 
@@ -64,8 +87,8 @@ namespace Game.Weapons
         {
             _health = 0;
             
+            OnChange?.Invoke(0);
             OnDeath?.Invoke();
-            OnChange?.Invoke();
             
             gameObject.SetActive(false);
         }

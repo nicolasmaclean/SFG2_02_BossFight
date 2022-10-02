@@ -1,67 +1,113 @@
-﻿using Game.Core;
-using Game.Utils;
-using Game.Weapons;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Game.Core;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Game._Game.Scripts.UI
+namespace Game.UI
 {
-    [RequireComponent(typeof(Slider))]
     public class HealthBar : MonoBehaviour
     {
+        [Header("Data")]
+        public string TargetName = string.Empty;
+        
         [SerializeField]
-        Killable _target;
-
-        [SerializeField]
-        float _lerpDuration = .1f;
-
-        Slider _slider;
-        IStoppable[] _stoppables;
-
-        void Awake()
+        [Range(0, 1)]
+        float _fraction = 1f;
+        public float Fraction
         {
-            _slider = GetComponent<Slider>();
-            _stoppables = GetComponentsInChildren<IStoppable>();
-        }
-
-        void Start() => UpdateVisuals();
-
-        void OnEnable()
-        {
-            _target.OnChange.AddListener(UpdateVisuals);
-        }
-
-        void OnDisable()
-        {
-            _target.OnChange.RemoveListener(UpdateVisuals);
-            if (_update != null)
+            set
             {
-                StopCoroutine(_update);
+                _fraction = Mathf.Clamp(value, 0, 1);
+                UpdateBar();
             }
         }
+        public void SetHealth(float fraction) => Fraction = fraction;
 
-        Coroutine _update;
-        void UpdateVisuals()
+        [FormerlySerializedAs("_leftAligned")] public bool LeftAligned = true;
+
+        [Header("Animation")]
+        [SerializeField]
+        float _lerpDelay = 0.2f;
+        
+        [SerializeField]
+        float _lerpDuration = 0.1f;
+        public float LerpLength => _lerpDelay + _lerpDuration;
+
+        [Header("References")]
+        [SerializeField, ReadOnly]
+        TMP_Text _name;
+        
+        [SerializeField]
+        Image _bar;
+        
+        [SerializeField]
+        TMP_Text _nameLeft;
+        
+        [SerializeField]
+        TMP_Text _nameRight;
+
+        [Space]
+        public UnityEvent<float> OnUpdate;
+
+        void Start()
         {
-            if (_update != null)
+            Configure();
+        }
+
+        #if UNITY_EDITOR
+        void OnValidate()
+        {
+            Configure();
+        }
+        #endif
+
+        public void Configure()
+        {
+            UpdateBar(false);
+            if (TargetName == string.Empty) return;
+            
+            _bar.fillOrigin = LeftAligned ? 0 : 1;
+            if (LeftAligned)
             {
-                StopCoroutine(_update);
+                _nameRight.gameObject.SetActive(false);
+                _nameLeft.gameObject.SetActive(true);
+
+                _name = _nameLeft;
+            }
+            else
+            {
+                _nameLeft.gameObject.SetActive(false);
+                _nameRight.gameObject.SetActive(true);
+                _name = _nameRight;
             }
             
-            foreach (var s in _stoppables)
-            {
-                s.Start();
-            }
+            _name.text = TargetName;
+        }
+
+        Coroutine _healthAnimation = null;
+        void UpdateBar(bool animated=true)
+        {
+            // cancel animation, if already going
+            // we are going to restart it
+            if (_healthAnimation != null) StopCoroutine(_healthAnimation);
             
-            float val = Mathf.Clamp(_target.Health / _target.InitialHealth, 0, 1);
-            _update = StartCoroutine(Coroutines.Slider_Lerp(_slider, val, _lerpDuration,
-            () =>
+            // instant update
+            if (!animated)
             {
-                foreach (var s in _stoppables)
-                {
-                    s.Stop();
-                }
+                _bar.fillAmount = _fraction;
+                return;
+            }
+
+            _healthAnimation = StartCoroutine(Coroutines.WaitThen(_lerpDelay, () =>
+            {
+                StartCoroutine(Coroutines.Image_Fill_Lerp(_bar, _fraction, _lerpDuration));
             }));
+            OnUpdate?.Invoke(_fraction);
         }
     }
 }

@@ -36,12 +36,13 @@ namespace Game
         void OnDisable() => _target.OnHurt.RemoveListener(FlashImage);
 
         Coroutine _flash;
+        void FlashImage(float healthAmt) => FlashImage();
         void FlashImage()
         {
             if (_flash != null) StopCoroutine(_flash);
-            _flash = StartCoroutine(Coroutines.Graphic_Lerp(_img, _to, _inTime, () =>
+            _flash = StartCoroutine(Coroutines.Graphic_Color_Lerp(_img, _to, _inTime, () =>
             {
-                StartCoroutine(Coroutines.Graphic_Lerp(_img, _from, _outTime));
+                StartCoroutine(Coroutines.Graphic_Color_Lerp(_img, _from, _outTime));
             }));
         }
     }
