@@ -26,5 +26,24 @@ namespace Game.Utils
         {
             _particle.Stop();
         }
+
+        public void Spawn(TransformData data)
+        {
+            StoppableParticles particles = Instantiate(this, data.Position, data.Rotation);
+            particles.Play();
+            Destroy(particles.gameObject, particles.GetComponent<ParticleSystem>().main.duration);
+        }
+    }
+    
+    public struct TransformData
+    {
+        public Vector3 Position;
+        public Quaternion Rotation;
+
+        public TransformData(Vector3 position, Quaternion rotation)
+        {
+            Position = position;
+            Rotation = rotation;
+        }
     }
 }

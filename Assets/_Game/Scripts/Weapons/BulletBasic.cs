@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Game.Core;
+using Game.Utils;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 namespace Game.Weapons
 {
@@ -23,8 +25,8 @@ namespace Game.Weapons
         protected float _lifetime = 30f;
 
         [Header("Events")]
-        public UnityEvent OnFire;
-        public UnityEvent OnHit;
+        public UnityEvent<TransformData> OnFire;
+        public UnityEvent<TransformData> OnHit;
         
         const float DESTROY_DELAY = 0.05f;
 
@@ -40,8 +42,9 @@ namespace Game.Weapons
                 s_parent = new GameObject("GRP_Bullets").transform;
             }
 
-            transform.parent = s_parent;
-            OnFire?.Invoke();
+            var t = transform;
+            t.parent = s_parent;
+            OnFire?.Invoke(new TransformData(t.position, t.rotation));
         }
         
         void Update()
@@ -57,7 +60,8 @@ namespace Game.Weapons
 
         void OnCollisionEnter(Collision collision)
         {
-            OnHit?.Invoke();
+            var contact = collision.GetContact(0);
+            OnHit?.Invoke(new TransformData(contact.point, Quaternion.LookRotation(contact.normal)));
             
             IDamageable target = collision.gameObject.GetComponent<IDamageable>();
             OnCollision(collision, target);
