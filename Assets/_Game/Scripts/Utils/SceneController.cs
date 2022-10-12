@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace Game.Utils
@@ -17,8 +18,16 @@ namespace Game.Utils
             #endif
         }
 
+        public void OnReload(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            
+            ReloadScene();
+        }
+        
         public void ReloadScene()
         {
+            print($"reloading {CurrentSceneIndex}");
             SceneManager.LoadScene(CurrentSceneIndex);
         }
         

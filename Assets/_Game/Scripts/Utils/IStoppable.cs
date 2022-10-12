@@ -2,7 +2,7 @@
 {
     public interface IStoppable
     {
-        public void Start();
+        public void Play();
         public void Stop();
     }
 }

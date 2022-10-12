@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Game.Utils
 {
-    [RequireComponent(typeof(ParticleSystem))]
     public class StoppableParticles : MonoBehaviour, IStoppable
     {
         ParticleSystem _particle;
@@ -11,9 +11,13 @@ namespace Game.Utils
         void Awake()
         {
             _particle = GetComponent<ParticleSystem>();
+            if (!_particle)
+            {
+                _particle = GetComponentInChildren<ParticleSystem>();
+            }
         }
 
-        public void Start()
+        public void Play()
         {
             _particle.Play();
         }

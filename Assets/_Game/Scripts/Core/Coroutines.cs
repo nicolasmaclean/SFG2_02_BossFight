@@ -88,5 +88,28 @@ namespace Game.Core
             callback?.Invoke();
             yield break;
         }
+
+        public static IEnumerator Material_Color_Lerp(
+            Material material,
+            Color to,
+            float duration,
+            System.Action callback = null
+        )
+        {
+            Color init = material.color; 
+            float elapsed = 0;
+
+            while (elapsed < duration)
+            {
+                material.color = Color.Lerp(init, to, elapsed / duration);
+                
+                yield return null;
+                elapsed += Time.deltaTime;
+            }
+
+            material.color = to;
+            callback?.Invoke();
+            yield break;
+        }
     }
 }
