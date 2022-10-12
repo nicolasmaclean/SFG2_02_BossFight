@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ModularMotion;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -21,13 +22,13 @@ namespace Game.Utils
         public void OnReload(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
-            
+
+            ModularMotion.Core.Motion.currentMotions.Clear();
             ReloadScene();
         }
         
         public void ReloadScene()
         {
-            print($"reloading {CurrentSceneIndex}");
             SceneManager.LoadScene(CurrentSceneIndex);
         }
         
